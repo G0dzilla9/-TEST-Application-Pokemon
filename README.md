@@ -15,8 +15,6 @@ L'application dépend principalement des bibliothèques standard de Go pour gér
 ### Prérequis
 
 1. **Télécharger les fichiers de l'application :**
-   - Téléchargez le fichier zip contenant tous les fichiers nécessaires à l'application depuis [ce lien](https://storage.googleapis.com/quelpoke/quelpoke.zip).
-   - Extrayez les fichiers sur votre poste.
 
 2. **Installer un éditeur de code :**
    - Vous pouvez utiliser [Visual Studio Code](https://code.visualstudio.com/Download) pour lire et éditer le code source.
