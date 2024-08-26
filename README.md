@@ -39,7 +39,6 @@ L'application dépend principalement des bibliothèques standard de Go pour gér
 4. **Accéder à l'application sur un navigateur :**
     http://localhost:8080
 
-© 2024 QuelPoke
-
 Ce fichier `README.md` inclut toutes les informations et commandes nécessaires pour utiliser l'application, de manière claire et concise.
+© 2024 QuelPoke
 
