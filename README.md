@@ -28,7 +28,7 @@ L'application dépend principalement des bibliothèques standard de Go pour gér
 ### Étapes de lancement
 
 1. **Ouvrir un terminal PowerShell :**
-   - Lancez PowerShell et naviguez vers le répertoire où vous avez extrait les fichiers de l'application.
+Lancez PowerShell et naviguez vers le répertoire où vous avez extrait les fichiers de l'application.
    ```cd "C:\Users\VOTRE_UTILISATEUR\Downloads\quelpoke"```
 2. **Installer les dépendances :**
    ```go mod tidy```
