@@ -1,4 +1,4 @@
-# Application trouver son Pokemon
+# Application : Trouver son Pokemon
 # QuelPoke
 
 ## Description du service
