@@ -1,4 +1,4 @@
-# Application : Trouver son Pokemon **QuelPoke**
+# QuelPoke
 
 ## Description du service
 
@@ -15,6 +15,8 @@ L'application dépend principalement des bibliothèques standard de Go pour gér
 ### Prérequis
 
 1. **Télécharger les fichiers de l'application :**
+   - Téléchargez le fichier zip contenant tous les fichiers nécessaires à l'application depuis [ce lien](https://storage.googleapis.com/quelpoke/quelpoke.zip).
+   - Extrayez les fichiers sur votre poste.
 
 2. **Installer un éditeur de code :**
    - Vous pouvez utiliser [Visual Studio Code](https://code.visualstudio.com/Download) pour lire et éditer le code source.
@@ -25,16 +27,47 @@ L'application dépend principalement des bibliothèques standard de Go pour gér
 ### Étapes de lancement
 
 1. **Ouvrir un terminal PowerShell :**
-Lancez PowerShell et naviguez vers le répertoire où vous avez extrait les fichiers de l'application.
-   ```cd "C:\Users\VOTRE_UTILISATEUR\Downloads\quelpoke"```
-2. **Installer les dépendances :**
-   ```go mod tidy```
-3. **Lancer l'application :**
-   ```go run main.go```
-4. **Accéder à l'application sur un navigateur :**
-    http://localhost:8080
+   - Lancez PowerShell et naviguez vers le répertoire où vous avez extrait les fichiers de l'application.
 
-Ce fichier `README.md` inclut toutes les informations et commandes nécessaires pour utiliser l'application, de manière claire et concise.
+   - `cd "C:\Users\VOTRE_UTILISATEUR\Downloads\quelpoke"`
+
+2. **Installer les dépendances :**
+   - `go mod tidy`
+
+3. **Lancer l'application :**
+   - `go run main.go`
+
+4. **Accéder à l'application sur un navigateur :**
+   - Rendez-vous sur `http://localhost:8080` pour utiliser l'application.
+
+### Lancer l'application avec Docker
+
+#### Sur Windows
+
+1. **Installer Docker Desktop sur Windows :**
+   - Suivez les instructions disponibles [ici](https://docs.docker.com/desktop/install/windows-install/) pour installer Docker Desktop.
+
+2. **Construire l'image Docker :**
+   - Ouvrez PowerShell, puis exécutez la commande suivante dans le répertoire contenant les fichiers de l'application, y compris le `Dockerfile` :
+
+   - `docker build -t monapp .`
+
+3. **Exécuter le conteneur Docker :**
+   - `docker run -p 8080:80 monapp`
+   - Accédez à l'application sur `http://localhost:8080`.
+
+#### Sur Linux
+
+1. **Installer Docker sur Linux :**
+   - Suivez les instructions de la documentation officielle pour installer Docker sur votre distribution Linux.
+
+2. **Construire l'image Docker :**
+   - Ouvrez un terminal, naviguez vers le répertoire contenant les fichiers de l'application, y compris le `Dockerfile`, puis exécutez la commande suivante :
+
+   - `docker build -t monapp .`
+
+3. **Exécuter le conteneur Docker :**
+   - `docker run -p 8080:80 monapp`
+   - Accédez à l'application sur `http://localhost:8080`.
 
 © 2024 QuelPoke
-
