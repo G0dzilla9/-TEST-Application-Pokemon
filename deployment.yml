@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quelpoke-tony
+  namespace: tony
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: monapp
+  template:
+    metadata:
+      labels:
+        app: monapp
+    spec:
+      containers:
+      - name: monapp-container
+        image: europe-west9-docker.pkg.dev/infal-devops-sysops/student-tony/monapp:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "25m"   # Requête minimale de CPU
+            memory: "32Mi" # Requête minimale de mémoire
+          limits:
+            cpu: "50m"   # Limite maximale de CPU
+            memory: "64Mi"   # Limite maximale de mémoire
