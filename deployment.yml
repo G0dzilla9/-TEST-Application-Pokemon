@@ -4,24 +4,21 @@ metadata:
   name: quelpoke-tony
   namespace: tony
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
-      app: monapp
+      app.kubernetes.io/tony: monapp-tony
   template:
     metadata:
       labels:
-        app: monapp
+        app.kubernetes.io/tony: monapp-tony
     spec:
       containers:
-      - name: monapp-container
+      - name: monapp-tony
         image: europe-west9-docker.pkg.dev/infal-devops-sysops/student-tony/monapp:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         resources:
           requests:
-            cpu: "25m"   # Requête minimale de CPU
-            memory: "32Mi" # Requête minimale de mémoire
-          limits:
-            cpu: "50m"   # Limite maximale de CPU
-            memory: "64Mi"   # Limite maximale de mémoire
+            cpu: 50m
+            memory: 64Mi
