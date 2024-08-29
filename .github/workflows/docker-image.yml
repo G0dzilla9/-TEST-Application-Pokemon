@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Image CI and Kubernetes Deployment
 
 on:
   push:
@@ -20,6 +20,21 @@ jobs:
     - name: Authenticate to GCP
       run: echo "${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}" | docker login -u _json_key_base64 --password-stdin https://europe-west9-docker.pkg.dev
 
+    - name: Set GCP project
+      run: gcloud config set project infal-devops-sysops
+
+    - name: Install GKE Auth Plugin
+      run: gcloud components install gke-gcloud-auth-plugin
+
+    - name: Get GKE Cluster Credentials
+      run: gcloud container clusters get-credentials lab-cluster --region=europe-west9
+
+    - name: Verify Kubernetes Nodes
+      run: kubectl get nodes
+
+    - name: Create Namespace
+      run: kubectl create namespace tony || echo "Namespace tony already exists"
+
     - name: Build and tag Docker image
       run: |
         IMAGE_TAG=europe-west9-docker.pkg.dev/infal-devops-sysops/student-tony/monapp:${{ github.sha }}
@@ -29,3 +44,13 @@ jobs:
       run: |
         IMAGE_TAG=europe-west9-docker.pkg.dev/infal-devops-sysops/student-tony/monapp:${{ github.sha }}
         docker push $IMAGE_TAG
+
+    - name: Deploy to GKE
+      run: |
+        kubectl apply -f deployment.yml --namespace=tony
+        kubectl apply -f service.yaml --namespace=tony
+        kubectl apply -f httproute.yaml --namespace=tony
+
+    - name: Verify Deployment
+      run: |
+        kubectl rollout status deployment/quelpoke-tony --namespace=tony
