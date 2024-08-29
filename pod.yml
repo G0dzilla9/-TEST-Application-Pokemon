@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: quelpoke-tony
+  namespace: tony
+spec:
+  containers:
+  - name: monapp-tony
+    image: europe-west9-docker.pkg.dev/infal-devops-sysops/student-tony/monapp:latest
+    resources:
+      requests:
+        cpu: 50m
+        memory: 64Mi
+    ports:
+    - containerPort: 8080
